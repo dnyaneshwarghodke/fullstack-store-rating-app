@@ -1,33 +1,27 @@
 // src/services/api.js
 import axios from 'axios';
 
-// Create an "instance" of axios
+// This is the "magic" line.
+// It tells our app: "Try to find a special 'VITE_API_URL' variable
+// (which Vercel will give us). If you can't find one (because
+// we are on localhost), then use 'http://localhost:3001' as a fallback."
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+
 const api = axios.create({
-  // Set the base URL for all API requests
-  // This is your backend server's address
-  baseURL: 'http://localhost:3001', 
+  baseURL: API_URL,
 });
 
-/**
- * This is a "request interceptor". It's a function that
- * will run BEFORE every single request that axios makes.
- *
- * Its job is to check if we have a token in localStorage,
- * and if we do, add it to the 'Authorization' header.
- *
- * This is how we will send our token on every protected request!
- */
+// This is our "interceptor" that automatically adds the
+// Authorization token to every request. (This code is unchanged).
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
     if (token) {
-      // 'config' is the request object. We add the token to its headers.
       config.headers['Authorization'] = `Bearer ${token}`;
     }
-    return config; // We must return the modified config
+    return config;
   },
   (error) => {
-    // Handle any request errors
     return Promise.reject(error);
   }
 );
