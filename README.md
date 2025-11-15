@@ -28,7 +28,7 @@ A complete web application built with React, Express, and PostgreSQL that allows
 
 ## How to Run Locally
 
-1.  **Clone the repo:** `git clone [YOUR_GITHUB_REPO_URL_HERE]`
+1.  **Git repo: [repo Link](https://github.com/dnyaneshwarghodke/fullstack-store-rating-app)**
 2.  **Setup Backend:**
     ```bash
     cd store-rating-backend
