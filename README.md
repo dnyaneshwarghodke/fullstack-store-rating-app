@@ -2,7 +2,7 @@
 
 A complete web application built with React, Express, and PostgreSQL that allows users to rate and review stores. This app features three distinct user roles (Normal User, Store Owner, and System Administrator), each with a unique dashboard and set of permissions.
 
-**Live Demo: [Link to your Vercel URL (You will get this in Part 2)]**
+**Live Demo: [Link to your Vercel URL ](https://fullstack-store-rating-app-nine.vercel.app/)**
 
 ---
 
